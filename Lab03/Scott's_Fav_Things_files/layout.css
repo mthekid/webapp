@@ -5,7 +5,7 @@ div.topic_desc , div#body {
 
 .Subject {
     border-bottom-color: blue;
-    border-bottom-style: 2px thick;
+    border-bottom: 2px thick;
     border-bottom-style: dashed;
 }
 
