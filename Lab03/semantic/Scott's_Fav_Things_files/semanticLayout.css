@@ -1,0 +1,85 @@
+
+div.topic_desc , div#body {
+    border : 5px solid ;
+}
+
+.Subject {
+    border-bottom-color: blue;
+    border-bottom-style: 2px thick;
+    border-bottom-style: dashed;
+}
+
+div.topic_desc {
+    background-color: #99CCFF;
+    padding: 5px;
+    margin-top: 10px;
+    text-align: justify;
+    border : 4px thick #1D2475;
+    border-radius: 15px;
+    overflow: auto;
+    /* margin-left: 190px; */ 
+    /* clear: right; */
+}
+
+div.topic_desc > p > img {
+    float: right;
+    clear: both; 
+}
+
+div#heading_section {
+    background-color: #1D2475;
+    color: white;
+}
+
+div#heading_section > h2 {
+    font-size : 14pt;
+    color: #CCCCCC;
+}
+
+div#heading_section > * {
+   text-align: right; 
+}
+
+div#body {
+    border-color: green;
+    background-color: white;
+    border : 10px solid white;
+}
+
+body {
+    margin-left: 10%;
+    margin-right: 10%;
+    background-image: url(./blueTextureBG.jpg);
+}
+
+#link {
+    border : 5px solid #1D2475;
+    float: left;
+    clear: both;
+    border-radius: 15px;
+    padding: 5px;
+    margin: 10px;
+    width: 150px;
+    background-color: #3366cc;
+}
+
+#topic_board {
+    margin-left: 190px;
+}
+
+#link > h1 , li{
+    color : rgb(192, 187, 187);
+}
+
+h1 , h2 {
+    font-weight: bolder;
+}
+
+* > *:hover{
+    background-color: #A6CE39;
+}
+
+
+/* #topic_section{
+    overflow: hidden;
+} */
