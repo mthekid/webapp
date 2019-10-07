@@ -1,5 +1,5 @@
 
-div.topic_desc , div#body {
+div.section , div#body {
     border : 5px solid ;
 }
 
@@ -9,7 +9,7 @@ div.topic_desc , div#body {
     border-bottom-style: dashed;
 }
 
-div.topic_desc {
+div.section {
     background-color: #99CCFF;
     padding: 5px;
     margin-top: 10px;
@@ -21,22 +21,22 @@ div.topic_desc {
     /* clear: right; */
 }
 
-div.topic_desc > p > img {
+div.section > p > img {
     float: right;
     clear: both; 
 }
 
-div#heading_section {
+div#header {
     background-color: #1D2475;
     color: white;
 }
 
-div#heading_section > h2 {
+div#header > h2 {
     font-size : 14pt;
     color: #CCCCCC;
 }
 
-div#heading_section > * {
+div#header > * {
    text-align: right; 
 }
 
@@ -52,7 +52,7 @@ body {
     background-image: url(./blueTextureBG.jpg);
 }
 
-#link {
+#aside {
     border : 5px solid #1D2475;
     float: left;
     clear: both;
@@ -63,11 +63,11 @@ body {
     background-color: #3366cc;
 }
 
-#topic_board {
+#article {
     margin-left: 190px;
 }
 
-#link > h1 , li{
+#aside > h1 , li{
     color : rgb(192, 187, 187);
 }
 
