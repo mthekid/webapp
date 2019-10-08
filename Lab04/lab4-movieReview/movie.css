@@ -1,0 +1,78 @@
+
+body {
+    /* Text of the page has size of 8pt and uses Verdana, Tahoma, or any sans-serif font on the system 
+    Page has no margin or padding - the contents stretch to the very edge of the browser window       */
+    font-size: 8pt;
+    font-family: "Verdana", "Tahoma", "sans-serif";
+    margin: 0%;
+     /* Background of the page should be background.png */
+     background-image: url(background.png);
+}
+
+div#banner {
+    /* at the center of this banner, there is banner.png */
+    text-align: center;
+    /* as a background of this banner, bannerbg.png repeats horizontally across the length of the page */
+    background-image: url(bannerbg.png);
+    height: 50px;
+}
+
+div#header {
+    /* is centered and uses 24pt bold font
+    uses Tahoma, Verdana, or sans-serif font available on the system
+    has shadow - 3px to right and down - with color #999999
+    */
+    font: 24px bold; 
+    text-align: center;
+    text-shadow: 3px 3px #999999;
+}
+
+div#article {
+    /* occupies 800px width and centered horizontally within the page */
+    width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 4px solid gray;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+div#section {
+    /* width: 550px; */
+}
+
+
+
+div#section_banner{
+    height: 83px;
+    background-image: url(rbg.png);
+    vertical-align: bottom;
+}
+
+#rate {
+    vertical-align: text-bottom;
+    font-size: 48pt;
+    font-weight: bold;
+    color: red;
+}
+div#review_section {
+    font-size: 8pt;
+    background-color: #E8DC9B;
+}
+
+/* each column occupies 47% of the width of the overall left section */
+div .section_column {
+    width: 47%;
+    float: left;
+    /* there is a horizontal spacing of 2% between columns and neighboring content  */
+    padding-right: 2%;
+}
+
+div .section_column > p > q {
+    background-color: #E8DC9B;
+    font-size: 8pt;
+    border: 2px gray;
+    border-radius: 10px;
+}
+ /* EX5부터 다시 진행해야함  */
+
