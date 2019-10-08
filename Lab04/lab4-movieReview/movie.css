@@ -68,11 +68,36 @@ div .section_column {
     padding-right: 2%;
 }
 
-div .section_column > p > q {
-    background-color: #E8DC9B;
-    font-size: 8pt;
-    border: 2px gray;
-    border-radius: 10px;
-}
  /* EX5부터 다시 진행해야함  */
+ /*  Each review box with quote :*/
+ div .section_column  p:nth-child(odd) {
+    font-size: 8pt;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding : 8px;
+    background-color: #E8DC9B;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+ /*  Each reviewer box with :*/
+div .section_column  p:nth-child(even) > img{
+    float: left;
+    margin-right: 5px;
+    vertical-align: text-bottom;
+}
+
+ /*  Each reviewer box with :*/
+div .section_column  p:nth-child(even) {
+    font-style: italic;
+}
+
+div .section_column p .review_img {
+    /* has fresh.gif or rotten.gif icon for the each review on the left 
+    side of the box has 5px spacing on the right */
+    margin-right: 5px;
+    float: left;
+}
+
+
 
