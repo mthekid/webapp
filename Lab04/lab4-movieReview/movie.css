@@ -27,7 +27,7 @@ div#header {
     text-shadow: 3px 3px #999999;
 }
 
-div#article {
+article {
     /* occupies 800px width and centered horizontally within the page */
     width: 800px;
     margin-right: auto;
@@ -37,20 +37,17 @@ div#article {
     overflow: hidden;
 }
 
-div#section {
-    /* width: 550px; */
+section {
+    width: 550px;
 }
-
-
 
 div#section_banner{
     height: 83px;
     background-image: url(rbg.png);
-    vertical-align: bottom;
 }
 
 #rate {
-    vertical-align: text-bottom;
+    vertical-align: top;
     font-size: 48pt;
     font-weight: bold;
     color: red;
@@ -61,43 +58,89 @@ div#review_section {
 }
 
 /* each column occupies 47% of the width of the overall left section */
-div .section_column {
+.section_column {
     width: 47%;
     float: left;
     /* there is a horizontal spacing of 2% between columns and neighboring content  */
-    padding-right: 2%;
+    padding-left: 2%;
 }
 
  /* EX5부터 다시 진행해야함  */
  /*  Each review box with quote :*/
- div .section_column  p:nth-child(odd) {
+ .section_column  p:nth-child(odd) {
     font-size: 8pt;
     border: 2px solid gray;
     border-radius: 10px;
     padding : 8px;
     background-color: #E8DC9B;
     overflow: hidden;
-    padding-bottom: 20px;
 }
 
  /*  Each reviewer box with :*/
-div .section_column  p:nth-child(even) > img{
+.section_column  p:nth-child(even) > img{
     float: left;
     margin-right: 5px;
-    vertical-align: text-bottom;
 }
 
  /*  Each reviewer box with :*/
-div .section_column  p:nth-child(even) {
+.section_column  p:nth-child(even) {
     font-style: italic;
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
-div .section_column p .review_img {
+.section_column p .review_img {
     /* has fresh.gif or rotten.gif icon for the each review on the left 
     side of the box has 5px spacing on the right */
     margin-right: 5px;
     float: left;
 }
 
+figure { 
+    width: 250px;
+    background-color: #A2B964;
+    float: right;
+    margin: 0%;
+}
 
+figure > dl {
+    padding: 10px;
+    font: 8pt "sans-serif";
+}
 
+figure > dl > dt {
+    font-weight: bold;
+}
+
+figure > dl > dd {
+    margin-bottom: 10pt;
+    font-weight: bold;
+}
+
+figure > dl > dd > ul {
+    list-style-type: none;
+    /* has a list of links at the bottom that sohuld be shown without bullets or indentation */
+    padding-left: 0%;
+}
+
+footer  {
+    /* background-color: #A2B964; */
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 800px;
+    text-align: center;
+    background-color: #A2B964;
+    padding: 5px;
+    /* should have no spacing between its vertically neighbouring elements */
+    clear: right;
+}
+
+#validator {
+    float: right;
+    opacity: 0.50;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    /* remain fixed in the page's bottom-right corner, even after scrolling */
+}

@@ -1,0 +1,26 @@
+#FT1 {
+    background-color: red;
+    font-size: 21pt;
+}
+
+#FT2 {
+    background-color: aquamarine;
+    font-size: 21pt;
+    width: 45%;
+    clear: both;
+    /* float: left; */
+}
+
+#FT3 {
+    background-color: blue;
+    width: 45%;
+    clear: both;
+    font-size: 21pt;
+}
+
+#FT4 {
+    background-color: red;
+    width: 45%;
+    font-size: 21pt;
+    float: right;
+}
