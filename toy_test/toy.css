@@ -1,43 +1,27 @@
-/* @font-face {
-    font-family: myFirstFont;
-    src: url(sansation_light.woff);
+
+/* 
+font-face 규칙.
+font-family : ~~ ;  : CSS에서 쓰일 폰트이름을 작성한다. EX : NanumSquareWeb
+src: url() format('woff')  // url( 다운로드 할 웹 폰트) 
+혹은 local (로컬에 설치 된 폰트의 경로를 명시) 을 이용해서 폰트의 위치를 명시한다. format으로 형식을 말한다.
+브라우저에서 적용할 수 있는 폰트를 찾을 때까지 선언한 순서대로 진행한다.
+
+
+*/
+
+@font-face{
+    font-family:myFirstFont;
+    src:url(./NanumGothic.woff);
 }
 
-@font-face{ 
-    font-family:'NanumGothic'; 
-    src:url('fonts/NanumGothic.eot'); 
-    src:url('fonts/NanumGothic.eot?#iefix') format(‘embedded-opentype’), 
-        url('fonts/NanumGothic.woff') format(‘woff’), 
-        url('fonts/NanumGothic.ttf') format('truetype'), 
-        url('fonts/NanumGothic.svg') format('svg'); 
-    font-weight: bold;
-} */
-
-/* @font-face {
-    font-family: NanumSquare;
-    src: url(NanumSquareR.eot);
-    src: url(NanumSquareR.eot#iefix) format('embedded-opentype'), 
-         url(NanumSquareR.woff2) format('woff2'), 
-         url(NanumSquareR.woff) format('woff'), 
-         url(NanumSquareR.ttf) format('truetype');
-} */
-
-
-@font-face {
-  font-family: NanumSquare;
-  src: url(data:application/font-woff;base64,d09GRgABAAAAADEFFFFFEDCrgAAA...);
-}
 
 p {
-    font-family: NanumSquare;
+    font-family: myFirstFont;
 }
 
-body {
-    font-family: NanumSquare;
-}
 
 #FT1 {
-    background-color: red;
+    background-color: blueviolet;
     font-size: 21pt;
 }
 
@@ -62,12 +46,5 @@ body {
     font-size: 21pt;
     float: right;
 }
-@font-face{ 
-    font-family:'NanumGothic'; 
-    src:url('fonts/NanumGothic.eot'); 
-    src:url('fonts/NanumGothic.eot?#iefix') format(‘embedded-opentype’), 
-        url('fonts/NanumGothic.woff') format(‘woff’), 
-        url('fonts/NanumGothic.ttf') format('truetype'), 
-        url('fonts/NanumGothic.svg') format('svg'); 
-}
+
 
