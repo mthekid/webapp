@@ -1,3 +1,41 @@
+/* @font-face {
+    font-family: myFirstFont;
+    src: url(sansation_light.woff);
+}
+
+@font-face{ 
+    font-family:'NanumGothic'; 
+    src:url('fonts/NanumGothic.eot'); 
+    src:url('fonts/NanumGothic.eot?#iefix') format(‘embedded-opentype’), 
+        url('fonts/NanumGothic.woff') format(‘woff’), 
+        url('fonts/NanumGothic.ttf') format('truetype'), 
+        url('fonts/NanumGothic.svg') format('svg'); 
+    font-weight: bold;
+} */
+
+/* @font-face {
+    font-family: NanumSquare;
+    src: url(NanumSquareR.eot);
+    src: url(NanumSquareR.eot#iefix) format('embedded-opentype'), 
+         url(NanumSquareR.woff2) format('woff2'), 
+         url(NanumSquareR.woff) format('woff'), 
+         url(NanumSquareR.ttf) format('truetype');
+} */
+
+
+@font-face {
+  font-family: NanumSquare;
+  src: url(data:application/font-woff;base64,d09GRgABAAAAADEFFFFFEDCrgAAA...);
+}
+
+p {
+    font-family: NanumSquare;
+}
+
+body {
+    font-family: NanumSquare;
+}
+
 #FT1 {
     background-color: red;
     font-size: 21pt;
@@ -24,3 +62,12 @@
     font-size: 21pt;
     float: right;
 }
+@font-face{ 
+    font-family:'NanumGothic'; 
+    src:url('fonts/NanumGothic.eot'); 
+    src:url('fonts/NanumGothic.eot?#iefix') format(‘embedded-opentype’), 
+        url('fonts/NanumGothic.woff') format(‘woff’), 
+        url('fonts/NanumGothic.ttf') format('truetype'), 
+        url('fonts/NanumGothic.svg') format('svg'); 
+}
+
