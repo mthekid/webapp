@@ -3,6 +3,7 @@
 font-face 규칙.
 font-family : ~~ ;  : CSS에서 쓰일 폰트이름을 작성한다. EX : NanumSquareWeb
 src: url() format('woff')  // url( 다운로드 할 웹 폰트) 
+font-style, font-weight로 지정가능
 혹은 local (로컬에 설치 된 폰트의 경로를 명시) 을 이용해서 폰트의 위치를 명시한다. format으로 형식을 말한다.
 브라우저에서 적용할 수 있는 폰트를 찾을 때까지 선언한 순서대로 진행한다.
 
