@@ -14,8 +14,8 @@
 		<!-- Ex 1: Number of Songs (Variables) -->
 		<p>
 			I love music.
-			I have 1234 total songs,
-			which is over 123 hours of music!
+			I have <?php $song_count = 1234; print "$song_count"; ?> total songs,
+			which is over <?php $song_hour = (int) 123; print "$song_hour"; ?> <? print "you are $song_hour"; ?>  hours of music!
 		</p>
 
 		<!-- Ex 2: Top Music News (Loops) -->
@@ -24,31 +24,51 @@
 			<h2>Billboard News</h2>
 		
 			<ol>
-			    <li><a href="https://www.billboard.com/archive/article/201910">2019-11</a></li>
-				<li><a href="https://www.billboard.com/archive/article/201910">2019-10</a></li>
-				<li><a href="https://www.billboard.com/archive/article/201909">2019-09</a></li>
-				<li><a href="https://www.billboard.com/archive/article/201908">2019-08</a></li>
-				<li><a href="https://www.billboard.com/archive/article/201907">2019-07</a></li>
+				<?php if( isset($_GET["newspages"]) ) { 
+					$newspages = $_GET["newspages"];
+				for($i =0 ; $i < $newspages; $i++) { 
+					$month = 11 - $i;
+					if($month < 10) { ?>
+				<li><a href="https://www.billboard.com/archive/article/20190<?php print"$month"; ?>">2019-<?php print"$month"; } elseif($month>=10) { ?>
+				<li><a href="https://www.billboard.com/archive/article/2019<?php print"$month"; ?>">2019-<?php print"$month"; } ?> 
+				<?php } ?></a></li>
+				<?php } else { 
+					for($i = 0; $i < 5; $i++ ) {
+						$month = 11 - $i;
+						if($moth < 10) { ?>
+				<li><a href="https://www.billboard.com/archive/article/20190<?php print"$month"; ?>">2019-<?php print"$month"; } elseif($month>=10) { ?>
+				<li><a href="https://www.billboard.com/archive/article/2019<?php print"$month"; ?>">2019-<?php print"$month"; } ?> 
+				<?php } } ?>
 			</ol>
 		</div>
 
 		<!-- Ex 4: Favorite Artists (Arrays) -->
 		<!-- Ex 5: Favorite Artists from a File (Files) -->
 		<div class="section">
+		<!--	<# ?php $favoriteArtists=array("Gun N'Roses ","Green Day", "Blink182", "Queen") ?> -->
+			<?php $results = "";
+			$lines = @file("favorite.txt") or $results = "can't read the file.";
+			$artists_wikiName[count($lines)] = array();
+			if($lines != null ) {?>
+					<!-- $results .= ($i+1) . ": " . $lines[$i] . "<br>";?> -->
 			<h2>My Favorite Artists</h2>
-		
 			<ol>
-				<li>Guns N' Roses</li>
-				<li>Green Day</li>
-				<li>Blink182</li>
-			</ol>
+			<?php for($i = 0; $i < count($lines); $i++) { 
+				$artists_wikiName[$i] = $lines[$i];?>
+				<li><a href="http://en.wikipedia.org/wiki/<?php echo "$artists_wikiName[$i]"; ?>"> <?php echo "$lines[$i]";  ?></a></li> <?php }?> 
+			</ol> <?php }?>
+			<!--	<# ?php for($i =0; $i < count($favoriteArtists); $i++ ) { ?>
+				<li>< #?php print"$favoriteAtists[$i]"; ?></li>
+				<# ?php } ?> -->
+
 		</div>
 		
 		<!-- Ex 6: Music (Multiple Files) -->
 		<!-- Ex 7: MP3 Formatting -->
 		<div class="section">
 			<h2>My Music and Playlists</h2>
-
+			
+			<?php print_r(glob("*.*")); ?> 
 			<ul id="musiclist">
 				<li class="mp3item">
 					<a href="lab5/musicPHP/songs/paradise-city.mp3">paradise-city.mp3</a>
