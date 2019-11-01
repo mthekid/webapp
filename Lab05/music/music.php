@@ -6,8 +6,6 @@
 		<meta charset="utf-8" />
 		<link href="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/images/5/music.jpg" type="image/jpeg" rel="shortcut icon" />
 		<link href="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/labResources/music.css" type="text/css" rel="stylesheet" />
-
-
 	</head>
 
 	<body>
@@ -102,24 +100,18 @@
 				<!-- Exercise 8: Playlists (Files) 우선 ul로 만들자.
 			-->
 				<!-- <li class="playlistitem">326-13f-mix.m3u: -->
-					<?php foreach (glob("lab5/musicPHP/songs/*.m3u") as $mp3uFileName ) { ?>
+				<?php foreach (glob("lab5/musicPHP/songs/*.m3u") as $mp3uFileName ) { ?>
 						<li class="playlistitem" > <?php $baseM3uName = basename($mp3uFileName); 
 						print "$baseM3uName"; ?> </li> 
 						<?php $results = "";
-						$skipword = "#";
+						$skipword = "#EXT";
 						 $mu3lists = @file($mp3uFileName) or $results = "can't read the file";  ?>
-						 <?php for ($i = 0; $i < count($mu3lists); $i++) { ?><li> 
-						<?php	if ( strpos($mu3lists[$i] , $skipword ) !== true ) {
-								echo "$mu3lists[$i]";
-							}	} ?></li>
-					<?php }?> 
-					<ul>
-						<li>Basket Case.mp3</li>
-						<li>All the Small Things.mp3</li>
-						<li>Just the Way You Are.mp3</li>
-						<li>Pradise City.mp3</li>
-						<li>Dreams.mp3</li>
-					</ul>
+						<ul> <?php for ($i = 0; $i < count($mu3lists); $i++) { ?> 
+						<?php	if ( strpos($mu3lists[$i] , $skipword ) === false ) {
+							?> <li> <?php	echo "$mu3lists[$i]"; ?> </li>
+						<?php	} ?>
+					<?php } ?> </ul> <?php }?> 
+					
 			</ul>
 		</div>
 
