@@ -6,6 +6,8 @@
 		<meta charset="utf-8" />
 		<link href="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/images/5/music.jpg" type="image/jpeg" rel="shortcut icon" />
 		<link href="https://selab.hanyang.ac.kr/courses/cse326/2019/labs/labResources/music.css" type="text/css" rel="stylesheet" />
+
+
 	</head>
 
 	<body>
@@ -42,6 +44,7 @@
 			</ol>
 		</div>
 
+		 
 		<!-- Ex 4: Favorite Artists (Arrays) -->
 		<!-- Ex 5: Favorite Artists from a File (Files) -->
 		<div class="section">
@@ -63,14 +66,28 @@
 
 		</div>
 		
-		<!-- Ex 6: Music (Multiple Files) -->
-		<!-- Ex 7: MP3 Formatting -->
+		<!-- Ex 6: Music (Multiple Files) 
+		1. 디렉토리 안에 들어가기? 경로를 입력해주는 걸로 대체.
+
+		-->
+
+
+		<!-- Ex 7: MP3 Formatting 
+				음악 다운로드 하도록 만들기 how?
+				킬로바이트로 음악 크기 표시하기
+		-->
 		<div class="section">
 			<h2>My Music and Playlists</h2>
 			
-			<?php print_r(glob("*.*")); ?> 
+			<!-- <# php print_r(glob("lab5/musicPHP/songs/*.mp3")); ?>  -->
+
 			<ul id="musiclist">
-				<li class="mp3item">
+				<?php foreach (glob("lab5/musicPHP/songs/*.mp3") as $filename ) { 
+					$baseSongname = basename($filename); ?>
+				<li class="mp3item"><a href="<?php echo "$filename" ?> " download> <?php echo "$baseSongname"?></a>
+				<?php $fileSize = floor( filesize($filename) / 1024) ;
+				echo "($fileSize KB) ";?> </li> <?php }?>	
+				<!-- <li class="mp3item">
 					<a href="lab5/musicPHP/songs/paradise-city.mp3">paradise-city.mp3</a>
 				</li>
 				
@@ -80,10 +97,22 @@
 
 				<li class="mp3item">
 					<a href="lab5/musicPHP/songs/all-the-small-things.mp3">all-the-small-things.mp3</a>
-				</li>
+				</li> -->
 
-				<!-- Exercise 8: Playlists (Files) -->
-				<li class="playlistitem">326-13f-mix.m3u:
+				<!-- Exercise 8: Playlists (Files) 우선 ul로 만들자.
+			-->
+				<!-- <li class="playlistitem">326-13f-mix.m3u: -->
+					<?php foreach (glob("lab5/musicPHP/songs/*.m3u") as $mp3uFileName ) { ?>
+						<li class="playlistitem" > <?php $baseM3uName = basename($mp3uFileName); 
+						print "$baseM3uName"; ?> </li> 
+						<?php $results = "";
+						$skipword = "#";
+						 $mu3lists = @file($mp3uFileName) or $results = "can't read the file";  ?>
+						 <?php for ($i = 0; $i < count($mu3lists); $i++) { ?><li> 
+						<?php	if ( strpos($mu3lists[$i] , $skipword ) !== true ) {
+								echo "$mu3lists[$i]";
+							}	} ?></li>
+					<?php }?> 
 					<ul>
 						<li>Basket Case.mp3</li>
 						<li>All the Small Things.mp3</li>
