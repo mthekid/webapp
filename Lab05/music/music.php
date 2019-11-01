@@ -80,11 +80,14 @@
 			<!-- <# php print_r(glob("lab5/musicPHP/songs/*.mp3")); ?>  -->
 
 			<ul id="musiclist">
-				<?php foreach (glob("lab5/musicPHP/songs/*.mp3") as $filename ) { 
-					$baseSongname = basename($filename); ?>
+				<?php $FilesizeArray =array(); 
+				foreach (glob("lab5/musicPHP/songs/*.mp3") as $filename ) { 
+					$baseSongname = basename($filename); 
+					$fileSize = floor( filesize($filename) / 1024) ;
+					$FilesizeArray[$baseSongname] = $fileSize ; ?>
+
 				<li class="mp3item"><a href="<?php echo "$filename" ?> " download> <?php echo "$baseSongname"?></a>
-				<?php $fileSize = floor( filesize($filename) / 1024) ;
-				echo "($fileSize KB) ";?> </li> <?php }?>	
+				<?php echo "($fileSize KB) ";?> </li> <?php }?>	
 				<!-- <li class="mp3item">
 					<a href="lab5/musicPHP/songs/paradise-city.mp3">paradise-city.mp3</a>
 				</li>
@@ -111,7 +114,51 @@
 							?> <li> <?php	echo "$mu3lists[$i]"; ?> </li>
 						<?php	} ?>
 					<?php } ?> </ul> <?php }?> 
-					
+
+							<hr>
+							<h2>sorted by alphabet</h2>
+				
+					<?php foreach (glob("lab5/musicPHP/songs/*.m3u") as $mp3uFileName ) { ?>
+						<li class="playlistitem" > <?php $baseM3uName = basename($mp3uFileName); 
+						print "$baseM3uName"; ?> </li> 
+						<?php $results = "";
+						$skipword = "#EXT";
+						 $mu3lists = @file($mp3uFileName) or $results = "can't read the file";
+						 sort($mu3lists)   ?>
+						<ul> <?php for ($i = 0; $i < count($mu3lists); $i++) { ?> 
+						<?php	if ( strpos($mu3lists[$i] , $skipword ) === false ) {
+							?> <li> <?php	echo "$mu3lists[$i]"; ?> </li>
+						<?php	} ?>
+					<?php } ?> </ul> <?php }?> 
+
+					<hr><h2> sorted by random : shuffle </h2>
+
+					<?php foreach (glob("lab5/musicPHP/songs/*.m3u") as $mp3uFileName ) { ?>
+						<li class="playlistitem" > <?php $baseM3uName = basename($mp3uFileName); 
+						print "$baseM3uName"; ?> </li> 
+						<?php $results = "";
+						$skipword = "#EXT";
+						 $mu3lists = @file($mp3uFileName) or $results = "can't read the file"; 
+						 shuffle($mu3lists)?>
+						<ul> <?php for ($i = 0; $i < count($mu3lists); $i++) { ?> 
+						<?php	if ( strpos($mu3lists[$i] , $skipword ) === false ) {
+							?> <li> <?php	echo "$mu3lists[$i]"; ?> </li>
+						<?php	} ?>
+					<?php } ?> </ul> <?php }?> 
+
+					<hr><h2> sorted by size</h2>
+				<ul id="musiclist">
+					<?php $FilesizeArray =array(); 
+					foreach (glob("lab5/musicPHP/songs/*.mp3") as $filename ) { 
+						$baseSongname = basename($filename); 
+						$fileSize = floor( filesize($filename) / 1024) ;
+						$FilesizeArray[$baseSongname] = $fileSize ; 
+						arsort($FilesizeArray); 
+						} ?>
+						<?php foreach($FilesizeArray as $key => $value ) {  ?>
+					<li class="mp3item"><a href="<?php echo "$filename" ?> " download> <?php echo "$key"?></a>
+					<?php echo "($value KB) ";?> </li> <?php }?>
+					<?php print_r($FilesizeArray); ?>	
 			</ul>
 		</div>
 
