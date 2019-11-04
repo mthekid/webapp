@@ -1,0 +1,4 @@
+input[attr^="val"] {} val :valid
+input[attr$="val"] {} val val
+input[attr*="val"] {} val val
+
