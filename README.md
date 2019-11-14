@@ -23,3 +23,6 @@ Lab06 - Basic Form! - create grade Store!.
 
 Lab07 - Basic SQL! - create a SQL!.
 [Lab07 Guideline](https://selab.hanyang.ac.kr/courses/cse326/2019/labs/lab7-SQL.html#).
+
+Lab08 - JavaScript! - Pimp My Text 
+[Lab08 Guideline](https://selab.hanyang.ac.kr/courses/cse326/2019/labs/lab8-pimpMyText.html).
