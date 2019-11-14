@@ -12,9 +12,13 @@
 ?>
 <br>
 <?php
-// echo $dbname;
-// echo $user;
-// echo $password;
+echo $dbname;
+echo $user;
+echo $password;
+?>
+<br>
+<?php
+echo $query;
 ?>
 <br>
 <?php
@@ -26,13 +30,17 @@ try {
     $imdb = new PDO($dsn,$user,$password);
     $imdb->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); 
     $imdb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    // echo "$dbname 데이터베이스 연결 성공!!<br/>";
+
+    echo "$dbname 데이터베이스 연결 성공!!<br/>";
+
     $stmt = $imdb->query($query);
-    foreach ($rows as $row){ ?>
-            <li> ID: <?php echo $row["id"]; ?> </li>
-            <li> name : <?php echo $row["name"]; ?> </li>
-        <?php } ?>
+    $rows = $stmt-> fetchAll();
+    echo "break point";
+
+    echo "<pre>";
+    print_r($rows);
+    echo "</pre>";
+    ?>
     <?php
 } catch (PDOException $e) {
     echo $e->getMessage();
