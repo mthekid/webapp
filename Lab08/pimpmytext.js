@@ -5,8 +5,8 @@ function pimpMyText() {
 }
 
 function biggerfont() {
-    var font = document.getElementById("pimp").style.fontSize;
-    var fontIntSize = parseInt(font);
+    var fontIntSize = parseInt( document.getElementById("pimp").style.fontSize );
+    // var fontIntSize = parseInt(font);
     fontIntSize += 2;
     var fontString = fontIntSize.toString() + "pt";
     document.getElementById("pimp").style.fontSize = fontString;
@@ -27,28 +27,56 @@ function onChange() {
 }
 
 function snoopify() {
-    var text = document.getElementById("pimp").value;
-    text = text.split(".").join("\-izzle.");
-    var toUpperPimp = text.toUpperCase();
-    document.getElementById("pimp").value = toUpperPimp;
+    var text = document.getElementById("pimp").value.split(".").join("\-izzle.");
+    // text = text.split(".").join("\-izzle.");
+    // var toUpperPimp = text.toUpperCase();
+    document.getElementById("pimp").value = text.toUpperCase();
 }
 
 
 function pigLatin() {
-    var textString = document.getElementById("Gangsta").value;
-    console.log(textString);
-    var PGarray = textString.split(",");
+    // var textString = document.getElementById("Gangsta").value;
+    // console.log(textString);
+    var PGarray = document.getElementById("Gangsta").value.split(",");
+    var result = "";
     console.log(PGarray);
 
     for ( var i = 0; i < PGarray.length; i ++) {
-        console.log(PGarray[i]);
-        console.log(typeof(PGarray[i] ));
-        console.log(PGarray[i].charAt(0) );
+        console.log( "array[ " + i + " ]:" + PGarray[i]);
+        var is = toPigLatin(PGarray[i].trim());
+        console.log(is);
+        result += is + ", " ;
     }
+    document.getElementById("Gangsta").value = result;
 }
 
 function Malkovich() {
-    var textString = document.getElementById("Gangsta").value;
-    // document.getElementById("Gangsta").value = "string";
-    console.log(textString);
+    // var textString = document.getElementById("Gangsta").value;
+    var result = "";
+    var PGarray = document.getElementById("Gangsta").value.split(",");
+    for ( var i = 0; i < PGarray.length; i ++) {
+        console.log( "array[ " + i + " ]:" + PGarray[i]);
+        if(PGarray[i].trim().length >= 5) {
+            console.log('length and array is ' + PGarray[i] + " " + PGarray[i].length );
+            PGarray[i] = ",Malkovich";
+            result += PGarray[i];
+        } else {
+            result += PGarray[i];
+        }
+    }
+    document.getElementById("Gangsta").value = result;
+}
+
+
+function toPigLatin(thing) {
+    const consonant = ["i","e","a","o","u"];
+    for(var i = 0 ; i < thing.length ; i++) {
+        if(consonant.includes(thing.charAt(i))  ) {
+            var piglatinValue = thing.substring(0, i) + "ay";
+            thing = thing.substring(i, thing.length);
+            thing += piglatinValue;
+            break;
+        }
+    }
+    return thing;
 }
