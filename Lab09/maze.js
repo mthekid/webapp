@@ -1,7 +1,7 @@
 /* CSE3026 : Web Application Development
  * Lab 09 - Maze
  */
-"use strict"
+"use strict";
 var loser = null;  // whether the user has hit a wall
 
 //page 4 , EX01
