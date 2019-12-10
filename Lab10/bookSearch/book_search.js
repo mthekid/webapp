@@ -1,6 +1,10 @@
 window.onload = function() {
     $("b_xml").onclick=function(){
-    	    //construct a Prototype Ajax.request object
+			//construct a Prototype Ajax.request object
+			new Ajax.Request("books.php" , { 
+				method: "get"
+			});
+			alert("hello");
     }
     $("b_json").onclick=function(){
     	    //construct a Prototype Ajax.request object
