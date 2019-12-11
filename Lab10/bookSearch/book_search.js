@@ -3,17 +3,20 @@ window.onload = function() {
 	var y = this.getCheckedRadio(x);
 	// this.console.log(x);
 	// this.console.log(y);
+	this.console.log(getCheckedRadio( $$("input") ) );
 
     $("b_xml").onclick=function(){
 			//construct a Prototype Ajax.request object
 			new Ajax.Request("books.php" , { 
 				method: "get",
+				// parameters: { category : getCheckedRadio($$('input[type="radio"]')) },
+				parameters: { category : getCheckedRadio($$("input")) },
 				onSuccess: showBooks_XML,
 				onFailure: ajaxFailed,
 				onException : ajaxFailed
 			});
-
-    }
+	}
+	
     $("b_json").onclick=function(){
 		new Ajax.Request("books_json.php" , {
 			method: "get",
@@ -42,6 +45,7 @@ function showBooks_XML(ajax) {
 	var yearList = response.getElementsByTagName("year");
 	var authorList = response.getElementsByTagName("author");
 	var ul = $("books");
+	console.log(titleList, yearList, authorList);
 	ul.innerHTML ="";
 
 	for (let index = 0; index < titleList.length; index++) {
@@ -50,7 +54,7 @@ function showBooks_XML(ajax) {
 		var author = authorList[index].firstChild.nodeValue;
 
 		var li = document.createElement("li");
-		li.innerHTML = title + author + "(" + year + ")";
+		li.innerHTML = title + ", by" + author + "(" + year + ")";
 		ul.appendChild(li);
 		// console.log(title , year, author);
 	}
@@ -58,8 +62,21 @@ function showBooks_XML(ajax) {
 }
 
 function showBooks_JSON(ajax) {
-	console.warn(ajax.responseText);
-	alert(ajax.responseText);
+	console.log(ajax.responseText);
+	$("books").innerHTML = "";
+	var jsonData = JSON.parse(ajax.responseText);
+	console.log( Object.keys(jsonData.books).length );
+	for (let index = 0; index < jsonData.books.length; index++) {
+		var title = jsonData.books[index].title;
+		var author = jsonData.books[index].author;
+		var year = jsonData.books[index].year;	
+
+		var li = document.createElement("li");
+		li.innerHTML = title + ", by" + author + "(" + year + ")";
+		$("books").appendChild(li);
+	}
+	// var title = jsonData.books[0].title;
+	// console.log(title)
 }
 
 function ajaxFailed(ajax, exception) {
