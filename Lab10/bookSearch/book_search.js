@@ -1,12 +1,27 @@
 window.onload = function() {
+	var x = $$('input[type="radio"]');
+	var y = this.getCheckedRadio(x);
+	// this.console.log(x);
+	// this.console.log(y);
+
     $("b_xml").onclick=function(){
 			//construct a Prototype Ajax.request object
 			new Ajax.Request("books.php" , { 
-				method: "get"
+				method: "get",
+				onSuccess: showBooks_XML,
+				onFailure: ajaxFailed,
+				onException : ajaxFailed
 			});
-			alert("hello");
+
     }
     $("b_json").onclick=function(){
+		new Ajax.Request("books_json.php" , {
+			method: "get",
+			parameters: { category : getCheckedRadio($$('input[type="radio"]')) },
+			onSuccess: showBooks_JSON,
+			onFailure: ajaxFailed,
+			onException: ajaxFailed
+		});
     	    //construct a Prototype Ajax.request object
     }
 };
@@ -21,10 +36,29 @@ function getCheckedRadio(radio_button){
 }
 
 function showBooks_XML(ajax) {
-	alert(ajax.responseText);
+	var response = ajax.responseXML;
+	console.log(response);
+	var titleList = response.getElementsByTagName("title");
+	var yearList = response.getElementsByTagName("year");
+	var authorList = response.getElementsByTagName("author");
+	var ul = $("books");
+	ul.innerHTML ="";
+
+	for (let index = 0; index < titleList.length; index++) {
+		var title = titleList[index].firstChild.nodeValue;
+		var year = yearList[index].firstChild.nodeValue;
+		var author = authorList[index].firstChild.nodeValue;
+
+		var li = document.createElement("li");
+		li.innerHTML = title + author + "(" + year + ")";
+		ul.appendChild(li);
+		// console.log(title , year, author);
+	}
+	// console.log( ul );
 }
 
 function showBooks_JSON(ajax) {
+	console.warn(ajax.responseText);
 	alert(ajax.responseText);
 }
 

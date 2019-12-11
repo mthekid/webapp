@@ -35,11 +35,11 @@ print "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 print "<books>\n";
 
 
-$lines = file($BOOKS_FILE);
+$lines = readfile($BOOKS_FILE);
 for ($i = 0; $i < count($lines); $i++) {
 	list($title, $author, $book_category, $year, $price) = explode("|", trim($lines[$i]));
 	if ($book_category == $category) {
-		print "\t<book category=\"$category\">\n";
+		print "\t<book category=\"$  category\">\n";
 		print "\t\t<title>$title</title>\n";
 		print "\t\t<author>$author</author>\n";
 		print "\t\t<year>$year</year>\n";
