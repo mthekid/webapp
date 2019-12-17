@@ -1,0 +1,38 @@
+body {
+	background-image: url("imgs/bg.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: Arial;
+	vertical-align: middle;
+}
+
+div:first-child {
+	width: 35%;
+	height: 77%;
+	position: fixed;
+	right: 2%;
+	top: 50%;
+	transform: translateY(-50%);
+	overflow: hidden;
+	font-size: 15pt;
+}
+
+#todo {
+	color: royalblue;
+}
+
+#done {
+	color: seagreen;
+	text-decoration: line-through;
+}
+
+img {
+	width: 60%;
+	position: fixed;
+	left: 2%;
+	top: 50%;
+	transform: translateY(-50%);
+	box-shadow: 10px 10px 5px grey;
+}

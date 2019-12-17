@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>SELab Member Registration</title>
+		<meta charset="utf-8" />
+		<meta name="author" content="Scott Uk-Jin Lee" />
+		<meta name="description" content="Final Exam Question for CSE3026: Web Application Development." />
+		<meta name="keywords" content="Hanyang university, cse3026, web application development, form, php" />
+		
+		<link rel="stylesheet" type="text/css" href="popNames.css" />
+		<link rel="shortcut icon" href="imgs/favicon.png" type="image/png" />
+
+        <script src="prototype.js" type="text/javascript"></script>
+        <script src="popNames.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+        <header>
+            <img src="imgs/name.png" alt="name" height="104" width="117"/>
+            <h1>Name Popularity !</h1>
+        </header>
+
+        <article>
+            <section>
+                <p>Search popularity of your favorite names between 1900 to 2000:</p>
+                <label>	Names :
+                    <select id="names" required="required">
+
+                    </select>
+                </label>
+                <button id="search">Search</button>
+            </section>
+            <hr />
+            <section>
+                <table>
+                    <tr id = "year"></tr>
+                    <tr id = "popularity"></tr>
+                </table>
+            </section>
+        </article>
+	</body>
+</html>
